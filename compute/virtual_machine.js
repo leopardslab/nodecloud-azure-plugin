@@ -1,0 +1,26 @@
+var ComputeManagementClient = require('azure-arm-compute');
+
+class VirtulMachines {
+
+  constructor(azureRestSdk) {
+     this._azureRestSdk = azureRestSdk;
+   }
+
+   createOrUpdate(resourceGroupName, vmName, parameters) {
+     if (!resourceGroupName || !vmName || !parameters) {
+       throw new Error('Provide resourceGroupName, vmName and parameters');
+     }
+
+     var createPromise = this._azureRestSdk
+                              .loginWithServicePrincipalSecret(process.env.AZURE_CLIENT_ID,
+                                process.env.AZURE_CLIENT_SECRET,
+                                process.env.AZURE_TENANT_ID)
+                              .then((credentials) => {
+                                return new ComputeManagementClient(credentials, process.env.AZURE_SUBSCRIPTION_ID)
+                                            .virtualmachines.createOrUpdate(resourceGroupName, vmName, parameters);
+                              });
+      return createPromise;
+   }
+}
+
+module.exports = VirtulMachines;
