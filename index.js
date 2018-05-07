@@ -1,5 +1,5 @@
 const msRestAzure = require('ms-rest-azure');
-const virtualmachine = require('./compute/virtualmachine')
+const virtualmachine = require('./compute/virtual_machine')
 
 class Azure {
 

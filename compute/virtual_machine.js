@@ -17,7 +17,7 @@ class VirtulMachines {
                                 process.env.AZURE_TENANT_ID)
                               .then((credentials) => {
                                 return new ComputeManagementClient(credentials, process.env.AZURE_SUBSCRIPTION_ID)
-                                            .virtualmachines.createOrUpdate(resourceGroupName, vmName, parameters);
+                                          .virtualMachines.createOrUpdate(resourceGroupName, vmName, parameters);
                               });
       return createPromise;
    }
