@@ -16,10 +16,10 @@ class BlobStorage {
       );
     }
   }
-  createContainer(containerName, params) {
+  create(containerName, params) {
     this.checkParams();
     return new Promise((resolve, reject) => {
-      if (!params) {
+      if (!params || !containerName) {
         reject(new Error("Provide params"));
       }
 
@@ -37,10 +37,49 @@ class BlobStorage {
     });
   }
 
-  deleteContainer(containerName, params) {
+  list(currentToken, params) {
     this.checkParams();
     return new Promise((resolve, reject) => {
-      if (!params) {
+      this._storageService.listContainersSegmented(
+        currentToken,
+        params,
+        (err, data) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(data);
+          }
+        }
+      );
+    });
+  }
+
+  upload(containerName, blob, localFileName, params) {
+    this.checkParams();
+    return new Promise((resolve, reject) => {
+      if (!containerName || !blob || !localFileName || !params) {
+        reject(new Error("Provide containerName, blob, localfile and params"));
+      }
+      this._storageService.createBlockBlobFromLocalFile(
+        containerName,
+        blob,
+        localFileName,
+        params,
+        (err, data) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(data);
+          }
+        }
+      );
+    });
+  }
+
+  delete(containerName, params) {
+    this.checkParams();
+    return new Promise((resolve, reject) => {
+      if (!params || !containerName) {
         reject(new Error("Provide params"));
       }
 
