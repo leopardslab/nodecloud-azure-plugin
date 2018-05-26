@@ -96,6 +96,29 @@ class BlobStorage {
       );
     });
   }
+
+  deleteBlob(containerName, blobName, params) {
+    this.checkParams();
+
+    return new Promise((resolve, reject) => {
+      if (!containerName || !blobName || !params) {
+        reject(new Error("Provide containerName, blobName to delete bolb."));
+      }
+
+      this._storageService.deleteBlobIfExists(
+        containerName,
+        blobName,
+        params,
+        (err, data) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(data);
+          }
+        }
+      );
+    });
+  }
 }
 
 module.exports = BlobStorage;
