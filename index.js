@@ -1,6 +1,7 @@
 const msRestAzure = require("ms-rest-azure");
 const virtualmachine = require("./compute/virtual_machine");
 const blobStorage = require("./storage/blob_storage");
+const queueStorage = require("./storage/queue_storage");
 
 class Azure {
   constructor() {
@@ -18,7 +19,8 @@ class Azure {
     return {
       getSDK: () => this._azureRestSdk,
       compute: this.virtualmachine,
-      blob: this.blobstorage
+      blob: this.blobstorage,
+      queue: this.queuestorage
     };
   }
 
@@ -28,6 +30,10 @@ class Azure {
 
   blobstorage() {
     return new blobStorage();
+  }
+
+  queuestorage() {
+    return new queueStorage();
   }
 }
 
