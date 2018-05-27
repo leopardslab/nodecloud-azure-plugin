@@ -1,0 +1,25 @@
+{
+  "name": "nodecloud-azure",
+  "version": "1.0.0",
+  "description": "Azure Wrapper for NodeCloud Core",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "TODO"
+  },
+  "keywords": [
+    "nodecloud",
+    "cloud",
+    "azure",
+    "nodecloud-core"
+  ],
+  "author": "Scorelab",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "azure-arm-compute": "^5.1.1",
+    "ms-rest-azure": "^2.5.5"
+  }
+}
