@@ -20,6 +20,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "azure-arm-compute": "^5.1.1",
+    "azure-arm-website": "^3.0.0-preview",
     "azure-storage": "^2.8.3",
     "ms-rest-azure": "^2.5.5"
   }
