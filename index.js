@@ -3,6 +3,7 @@ const virtualmachine = require("./compute/virtual_machine");
 const blobStorage = require("./storage/blob_storage");
 const queueStorage = require("./storage/queue_storage");
 const tableStorage = require("./storage/table_storage");
+const virtualNetwork = require("./network/azure-virtual-network");
 
 class Azure {
   constructor() {
@@ -22,7 +23,8 @@ class Azure {
       compute: this.virtualmachine,
       blob: this.blobstorage,
       queue: this.queuestorage,
-      table: this.tablestorage
+      table: this.tablestorage,
+      network: this.virtualnetwork
     };
   }
 
@@ -40,6 +42,10 @@ class Azure {
 
   tablestorage() {
     return new tableStorage();
+  }
+
+  virtualnetwork() {
+    return new virtualNetwork(this.getSDK());
   }
 }
 
