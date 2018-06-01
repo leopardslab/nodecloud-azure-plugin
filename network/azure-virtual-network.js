@@ -92,6 +92,58 @@ class VirtualNetworks {
 
     return listPromise;
   }
+
+  createSubnet(resourceGroupName, networkName, subnetName, params) {
+    if (!networkName || !subnetName) {
+      throw new Error("Provide networkName and subnetName");
+    }
+
+    let subnetCreatePromise = this._azureRestSdk
+      .loginWithServicePrincipalSecret(
+        process.env.AZURE_CLIENT_ID,
+        process.env.AZURE_CLIENT_SECRET,
+        process.env.AZURE_TENANT_ID
+      )
+      .then(credentials => {
+        return new NetworkManagementClient(
+          credentials,
+          process.env.AZURE_SUBSCRIPTION_ID
+        ).subnets.createOrUpdate(
+          resourceGroupName,
+          networkName,
+          subnetName,
+          params
+        );
+      });
+
+    return subnetCreatePromise;
+  }
+
+  deleteSubnet(resourceGroupName, networkName, subnetName, params) {
+    if (!networkName || !subnetName) {
+      throw new Error("Provide networkName and subnetName");
+    }
+
+    let deleteSubnetPromise = this._azureRestSdk
+      .loginWithServicePrincipalSecret(
+        process.env.AZURE_CLIENT_ID,
+        process.env.AZURE_CLIENT_SECRET,
+        process.env.AZURE_TENANT_ID
+      )
+      .then(credentials => {
+        return new NetworkManagementClient(
+          credentials,
+          process.env.AZURE_SUBSCRIPTION_ID
+        ).subnets.deleteMethod(
+          resourceGroupName,
+          networkName,
+          subnetName,
+          params
+        );
+      });
+
+    return deleteSubnetPromise;
+  }
 }
 
 module.exports = VirtualNetworks;
