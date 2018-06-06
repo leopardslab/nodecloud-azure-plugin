@@ -144,6 +144,52 @@ class VirtualNetworks {
 
     return deleteSubnetPromise;
   }
+
+  createSecurityGroup(resourceGroupName, groupName, params) {
+    if (!groupName) {
+      throw new Error("Provide groupName");
+    }
+
+    let createSecurityGroupPromise = this._azureRestSdk
+      .loginWithServicePrincipalSecret(
+        process.env.AZURE_CLIENT_ID,
+        process.env.AZURE_CLIENT_SECRET,
+        process.env.AZURE_TENANT_ID
+      )
+      .then(credentials => {
+        return new NetworkManagementClient(
+          credentials,
+          process.env.AZURE_SUBSCRIPTION_ID
+        ).networkSecurityGroups.createOrUpdate(
+          resourceGroupName,
+          groupName,
+          params
+        );
+      });
+
+    return createSecurityGroupPromise;
+  }
+
+  deleteSecurityGroup(resourceGroupName, groupName) {
+    if (!groupName) {
+      throw new Error("Provide groupName");
+    }
+
+    let deleteSecurityGroupPromise = this._azureRestSdk
+      .loginWithServicePrincipalSecret(
+        process.env.AZURE_CLIENT_ID,
+        process.env.AZURE_CLIENT_SECRET,
+        process.env.AZURE_TENANT_ID
+      )
+      .then(credentials => {
+        return new NetworkManagementClient(
+          credentials,
+          process.env.AZURE_SUBSCRIPTION_ID
+        ).networkSecurityGroups.deleteMethod(resourceGroupName, groupName);
+      });
+
+    return deleteSecurityGroupPromise;
+  }
 }
 
 module.exports = VirtualNetworks;
