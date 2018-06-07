@@ -10,12 +10,7 @@
     "type": "git",
     "url": "TODO"
   },
-  "keywords": [
-    "nodecloud",
-    "cloud",
-    "azure",
-    "nodecloud-core"
-  ],
+  "keywords": ["nodecloud", "cloud", "azure", "nodecloud-core"],
   "author": "Scorelab",
   "license": "Apache-2.0",
   "dependencies": {
