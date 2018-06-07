@@ -16,7 +16,9 @@
   "dependencies": {
     "azure-arm-compute": "^5.1.1",
     "chai": "^4.1.2",
-    "ms-rest-azure": "^2.5.5",
-    "nock": "^9.2.6"
+    "nock": "^9.2.6",
+    "azure-arm-website": "^3.0.0-preview",
+    "azure-storage": "^2.8.3",
+    "ms-rest-azure": "^2.5.5"
   }
 }
