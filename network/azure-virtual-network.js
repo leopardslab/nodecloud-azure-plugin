@@ -240,6 +240,68 @@ class VirtualNetworks {
 
     return deleteLoadBalancerPromise;
   }
+
+  createSecurityRule(
+    resourceGroupName,
+    networkSecurityGroupName,
+    securityRuleName,
+    params
+  ) {
+    if (!networkSecurityGroupName || !securityRuleName) {
+      throw new Error("Provide networkSecurityGroupName and securityRuleName");
+    }
+
+    let createSecurityRulePromise = this._azureRestSdk
+      .loginWithServicePrincipalSecret(
+        process.env.AZURE_CLIENT_ID,
+        process.env.AZURE_CLIENT_SECRET,
+        process.env.AZURE_TENANT_ID
+      )
+      .then(credentials => {
+        return new NetworkManagementClient(
+          credentials,
+          process.env.AZURE_SUBSCRIPTION_ID
+        ).securityRules.createOrUpdate(
+          resourceGroupName,
+          networkSecurityGroupName,
+          securityRuleName,
+          params
+        );
+      });
+
+    return createSecurityRulePromise;
+  }
+
+  deleteSecurityRule(
+    resourceGroupName,
+    networkSecurityGroupName,
+    securityRuleName,
+    params
+  ) {
+    if (!networkSecurityGroupName || !securityRuleName) {
+      throw new Error("Provide networkSecurityGroupName and securityRuleName");
+    }
+
+    let deleteSecurityRulePromise = this._azureRestSdk
+      .loginWithServicePrincipalSecret(
+        process.env.AZURE_CLIENT_ID,
+        process.env.AZURE_CLIENT_SECRET,
+        process.env.AZURE_TENANT_ID
+      )
+      .then(credentials => {
+        return new NetworkManagementClient(
+          credentials,
+          process.env.AZURE_SUBSCRIPTION_ID
+        ).securityRules.deleteMethod(
+          resourceGroupName,
+          networkSecurityGroupName,
+          securityRuleName,
+          params
+        );
+      });
+
+    return deleteSecurityRulePromise;
+  }
 }
 
 module.exports = VirtualNetworks;
