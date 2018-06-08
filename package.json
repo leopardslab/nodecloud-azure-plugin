@@ -10,17 +10,15 @@
     "type": "git",
     "url": "TODO"
   },
-  "keywords": [
-    "nodecloud",
-    "cloud",
-    "azure",
-    "nodecloud-core"
-  ],
+  "keywords": ["nodecloud", "cloud", "azure", "nodecloud-core"],
   "author": "Scorelab",
   "license": "Apache-2.0",
   "dependencies": {
     "azure-arm-compute": "^5.1.1",
     "azure-arm-network": "^5.3.0",
+    "chai": "^4.1.2",
+    "nock": "^9.2.6",
+    "azure-arm-website": "^3.0.0-preview",
     "azure-storage": "^2.8.3",
     "ms-rest-azure": "^2.5.5"
   }
