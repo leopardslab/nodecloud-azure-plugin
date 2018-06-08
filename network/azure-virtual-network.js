@@ -190,6 +190,56 @@ class VirtualNetworks {
 
     return deleteSecurityGroupPromise;
   }
+
+  createLoadBalancer(resourceGroupName, loadBalancerName, params) {
+    if (!loadBalancerName) {
+      throw new Error("Provide loadBalancerName");
+    }
+
+    let createLoadBalancerPromise = this._azureRestSdk
+      .loginWithServicePrincipalSecret(
+        process.env.AZURE_CLIENT_ID,
+        process.env.AZURE_CLIENT_SECRET,
+        process.env.AZURE_TENANT_ID
+      )
+      .then(credentials => {
+        return new NetworkManagementClient(
+          credentials,
+          process.env.AZURE_SUBSCRIPTION_ID
+        ).loadBalancers.createOrUpdate(
+          resourceGroupName,
+          loadBalancerName,
+          params
+        );
+      });
+
+    return createLoadBalancerPromise;
+  }
+
+  deleteLoadBalancer(resourceGroupName, loadBalancerName, params) {
+    if (!loadBalancerName) {
+      throw new Error("Provide loadBalancerName");
+    }
+
+    let deleteLoadBalancerPromise = this._azureRestSdk
+      .loginWithServicePrincipalSecret(
+        process.env.AZURE_CLIENT_ID,
+        process.env.AZURE_CLIENT_SECRET,
+        process.env.AZURE_TENANT_ID
+      )
+      .then(credentials => {
+        return new NetworkManagementClient(
+          credentials,
+          process.env.AZURE_SUBSCRIPTION_ID
+        ).loadBalancers.deleteMethod(
+          resourceGroupName,
+          loadBalancerName,
+          params
+        );
+      });
+
+    return deleteLoadBalancerPromise;
+  }
 }
 
 module.exports = VirtualNetworks;
