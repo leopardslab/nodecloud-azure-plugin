@@ -1,7 +1,6 @@
-const chai = require("chai");
 const nock = require("nock");
 const msRestAzure = require("ms-rest-azure");
-const azureVMx = require("../compute/virtual_machine");
+const azureVMx = require("../compute/virtual-machine");
 const azureVM = new azureVMx(msRestAzure);
 const params = {
   location: "centralus",
