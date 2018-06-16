@@ -1,4 +1,3 @@
-const nock = require("nock");
 const azureStorageX = require("../storage/queue-storage");
 const azureStorage = new azureStorageX();
 
