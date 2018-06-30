@@ -1,4 +1,6 @@
 const azureStorageX = require("../storage/table-storage");
+const chai = require("chai");
+const assert = chai.assert;
 const azureStorage = new azureStorageX();
 const tableName = "nodecloudunittesttable";
 const task = {
@@ -13,7 +15,9 @@ describe("Azure Table Storage", () => {
     azureStorage
       .create(tableName, {})
       .then(res => {
-        console.log(res);
+        assert.isOk(true, res.isSuccessful);
+        assert.isOk(204, res.statusCode);
+        assert.isOk(tableName, res.TableName);
         done();
       })
       .catch(err => {
@@ -26,7 +30,7 @@ describe("Azure Table Storage", () => {
     azureStorage
       .insert(tableName, task, {})
       .then(res => {
-        console.log(res);
+        assert.notEqual(null, res);
         done();
       })
       .catch(err => {
@@ -39,7 +43,7 @@ describe("Azure Table Storage", () => {
     azureStorage
       .retrieveEntity(tableName, task.PartitionKey._, task.RowKey._, {})
       .then(res => {
-        console.log(res);
+        assert.notEqual(null, res);
         done();
       })
       .catch(err => {
@@ -52,7 +56,7 @@ describe("Azure Table Storage", () => {
     azureStorage
       .delete(tableName, {})
       .then(res => {
-        console.log(res);
+        assert.isOk(true, res);
         done();
       })
       .catch(err => {

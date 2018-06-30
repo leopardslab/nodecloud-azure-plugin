@@ -1,4 +1,6 @@
 const azureStorageX = require("../storage/queue-storage");
+const chai = require("chai");
+const assert = chai.assert;
 const azureStorage = new azureStorageX();
 
 const queueName = "nodecloud-unit-test-queue";
@@ -8,7 +10,8 @@ describe("Azure Queue Storage", () => {
     azureStorage
       .create(queueName)
       .then(res => {
-        console.log(res);
+        assert.isOk(queueName, res.name);
+        assert.isOk(true, res.created);
         done();
       })
       .catch(err => {
@@ -21,7 +24,7 @@ describe("Azure Queue Storage", () => {
     azureStorage
       .insert(queueName, "test-message", {})
       .then(res => {
-        console.log(res);
+        assert.notEqual(res, null);
         done();
       })
       .catch(err => {
@@ -33,7 +36,7 @@ describe("Azure Queue Storage", () => {
     azureStorage
       .peek(queueName, {})
       .then(res => {
-        console.log(res);
+        assert.isOk("test-message", res.messageText);
         done();
       })
       .catch(err => {
@@ -45,7 +48,7 @@ describe("Azure Queue Storage", () => {
     azureStorage
       .delete(queueName, {})
       .then(res => {
-        console.log(res);
+        assert.isOk(true, res);
         done();
       })
       .catch(err => {

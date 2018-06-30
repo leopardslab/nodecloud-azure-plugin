@@ -49,7 +49,6 @@ describe("Azure VM", () => {
     azureVM
       .list("nodecloud")
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -72,7 +71,6 @@ describe("Azure VM", () => {
     azureVM
       .createOrUpdate("nodecloudtest", "testVM", params)
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -95,7 +93,6 @@ describe("Azure VM", () => {
     azureVM
       .start("nodecloudtest", "testVM")
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -117,7 +114,6 @@ describe("Azure VM", () => {
     azureVM
       .stop("nodecloudtest", "testVM")
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -140,7 +136,6 @@ describe("Azure VM", () => {
     azureVM
       .destroy("nodecloudtest", "testVM")
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -163,7 +158,6 @@ describe("Azure VM", () => {
     azureVM
       .reboot("nodecloudtest", "testVM")
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })

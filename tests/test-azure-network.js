@@ -39,7 +39,6 @@ describe("Azure Network", () => {
     azureNetwork
       .create("nodeCloud-unit", "unittestnetwork", params)
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -63,7 +62,6 @@ describe("Azure Network", () => {
     azureNetwork
       .delete("nodecloud-unit", "unittestnetwork", params)
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -87,7 +85,6 @@ describe("Azure Network", () => {
     azureNetwork
       .get("nodecloud-unit", "unittestnetwork", {})
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -111,7 +108,6 @@ describe("Azure Network", () => {
     azureNetwork
       .list("nodecloud-unit")
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -135,7 +131,6 @@ describe("Azure Network", () => {
     azureNetwork
       .createSubnet("nodecloud", "unittestnetwork", "unitestsubnet", params)
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -159,7 +154,6 @@ describe("Azure Network", () => {
     azureNetwork
       .deleteSubnet("nodecloud", "unittestnetwork", "unittestsubnet", params)
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -183,7 +177,6 @@ describe("Azure Network", () => {
     azureNetwork
       .createSecurityGroup("nodecloud", "unittestgroup", params)
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -207,7 +200,6 @@ describe("Azure Network", () => {
     azureNetwork
       .deleteSecurityGroup("nodecloud", "unittestgroup", params)
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -231,7 +223,6 @@ describe("Azure Network", () => {
     azureNetwork
       .createLoadBalancer("nodecloud", "unitestsloadbalancer", params)
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -255,7 +246,6 @@ describe("Azure Network", () => {
     azureNetwork
       .deleteLoadBalancer("nodecloud", "unitestsloadbalancer", params)
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -284,7 +274,6 @@ describe("Azure Network", () => {
         securityRulesParams
       )
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -313,7 +302,6 @@ describe("Azure Network", () => {
         securityRulesParams
       )
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })

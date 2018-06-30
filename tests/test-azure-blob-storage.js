@@ -1,4 +1,6 @@
 const azureStorageX = require("../storage/blob-storage");
+const chai = require("chai");
+const assert = chai.assert;
 const nock = require("nock");
 const azureStorage = new azureStorageX();
 
@@ -9,7 +11,7 @@ describe("Azure Blob Storage", () => {
     azureStorage
       .create(containerName, { publicAccessLevel: "blob" })
       .then(res => {
-        console.log(res);
+        assert.isOk("nodecloud-unit-test", res.name);
         done();
       })
       .catch(err => {
@@ -22,7 +24,7 @@ describe("Azure Blob Storage", () => {
     azureStorage
       .list(null, {})
       .then(res => {
-        console.log(res);
+        assert.isOk(1, res.entries.len);
         done();
       })
       .catch(err => {
@@ -35,7 +37,7 @@ describe("Azure Blob Storage", () => {
     azureStorage
       .upload(containerName, "unit-test-blob", "./package.json", {})
       .then(res => {
-        console.log(res);
+        assert.isOk("unit-test-blob", res.name);
         done();
       })
       .catch(err => {
@@ -48,7 +50,7 @@ describe("Azure Blob Storage", () => {
     azureStorage
       .delete(containerName, {})
       .then(res => {
-        console.log(res);
+        assert.isOk(true, res);
         done();
       })
       .catch(err => {

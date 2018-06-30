@@ -30,7 +30,6 @@ describe("Azure WebApps", () => {
     azureWebApps
       .list("nodecloud")
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -52,7 +51,6 @@ describe("Azure WebApps", () => {
     azureWebApps
       .createHostingPlan("nodecloud", "nodecloud-unit-test", planParameters)
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -74,7 +72,6 @@ describe("Azure WebApps", () => {
     azureWebApps
       .createWebSite("nodecloud", "nodecloud-test-website", planParameters)
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -96,7 +93,6 @@ describe("Azure WebApps", () => {
     azureWebApps
       .getWebsite("nodecloyd-name", "Node")
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
@@ -119,7 +115,6 @@ describe("Azure WebApps", () => {
     azureWebApps
       .deleteWebSite("nodecloud", "apps", {})
       .then(res => {
-        console.log(res);
         assert.isOk({}, res);
         done();
       })
