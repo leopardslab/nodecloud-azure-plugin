@@ -1,4 +1,6 @@
 const nock = require("nock");
+const chai = require("chai");
+const assert = chai.assert;
 const msRestAzure = require("ms-rest-azure");
 const azureWebAppsx = require("../webapps/app-service");
 const azureWebApps = new azureWebAppsx(msRestAzure);
@@ -29,6 +31,7 @@ describe("Azure WebApps", () => {
       .list("nodecloud")
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -50,6 +53,7 @@ describe("Azure WebApps", () => {
       .createHostingPlan("nodecloud", "nodecloud-unit-test", planParameters)
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -71,6 +75,7 @@ describe("Azure WebApps", () => {
       .createWebSite("nodecloud", "nodecloud-test-website", planParameters)
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -92,6 +97,7 @@ describe("Azure WebApps", () => {
       .getWebsite("nodecloyd-name", "Node")
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -114,6 +120,7 @@ describe("Azure WebApps", () => {
       .deleteWebSite("nodecloud", "apps", {})
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {

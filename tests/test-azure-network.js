@@ -1,4 +1,6 @@
 const nock = require("nock");
+const chai = require("chai");
+const assert = chai.assert;
 const msRestAzure = require("ms-rest-azure");
 const azureNx = require("../network/azure-virtual-network");
 const azureNetwork = new azureNx(msRestAzure);
@@ -38,6 +40,7 @@ describe("Azure Network", () => {
       .create("nodeCloud-unit", "unittestnetwork", params)
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -61,6 +64,7 @@ describe("Azure Network", () => {
       .delete("nodecloud-unit", "unittestnetwork", params)
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -84,6 +88,7 @@ describe("Azure Network", () => {
       .get("nodecloud-unit", "unittestnetwork", {})
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -107,6 +112,7 @@ describe("Azure Network", () => {
       .list("nodecloud-unit")
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -130,6 +136,7 @@ describe("Azure Network", () => {
       .createSubnet("nodecloud", "unittestnetwork", "unitestsubnet", params)
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -153,6 +160,7 @@ describe("Azure Network", () => {
       .deleteSubnet("nodecloud", "unittestnetwork", "unittestsubnet", params)
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -176,6 +184,7 @@ describe("Azure Network", () => {
       .createSecurityGroup("nodecloud", "unittestgroup", params)
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -199,6 +208,7 @@ describe("Azure Network", () => {
       .deleteSecurityGroup("nodecloud", "unittestgroup", params)
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -222,6 +232,7 @@ describe("Azure Network", () => {
       .createLoadBalancer("nodecloud", "unitestsloadbalancer", params)
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -245,6 +256,7 @@ describe("Azure Network", () => {
       .deleteLoadBalancer("nodecloud", "unitestsloadbalancer", params)
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -273,6 +285,7 @@ describe("Azure Network", () => {
       )
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -301,6 +314,7 @@ describe("Azure Network", () => {
       )
       .then(res => {
         console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
