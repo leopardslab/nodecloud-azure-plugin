@@ -1,7 +1,8 @@
-const chai = require("chai");
 const nock = require("nock");
+const chai = require("chai");
+const assert = chai.assert;
 const msRestAzure = require("ms-rest-azure");
-const azureVMx = require("../compute/virtual_machine");
+const azureVMx = require("../compute/virtual-machine");
 const azureVM = new azureVMx(msRestAzure);
 const params = {
   location: "centralus",
@@ -48,7 +49,7 @@ describe("Azure VM", () => {
     azureVM
       .list("nodecloud")
       .then(res => {
-        console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(res => {
@@ -70,7 +71,7 @@ describe("Azure VM", () => {
     azureVM
       .createOrUpdate("nodecloudtest", "testVM", params)
       .then(res => {
-        console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -92,7 +93,7 @@ describe("Azure VM", () => {
     azureVM
       .start("nodecloudtest", "testVM")
       .then(res => {
-        console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -113,7 +114,7 @@ describe("Azure VM", () => {
     azureVM
       .stop("nodecloudtest", "testVM")
       .then(res => {
-        console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -135,7 +136,7 @@ describe("Azure VM", () => {
     azureVM
       .destroy("nodecloudtest", "testVM")
       .then(res => {
-        console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
@@ -157,7 +158,7 @@ describe("Azure VM", () => {
     azureVM
       .reboot("nodecloudtest", "testVM")
       .then(res => {
-        console.log(res);
+        assert.isOk({}, res);
         done();
       })
       .catch(err => {
