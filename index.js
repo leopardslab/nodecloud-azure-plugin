@@ -4,7 +4,8 @@ const blobStorage = require("./storage/blob-storage");
 const queueStorage = require("./storage/queue-storage");
 const tableStorage = require("./storage/table-storage");
 const virtualNetwork = require("./network/azure-virtual-network");
-const webSite = require("./webapps/app-service.js");
+const webSite = require("./webapps/app-service");
+const database = require("./database/azure-database");
 
 class Azure {
   constructor() {
@@ -26,7 +27,8 @@ class Azure {
       queue: this.queuestorage,
       table: this.tablestorage,
       network: this.virtualnetwork,
-      website: this.website
+      website: this.website,
+      sql: this.sql
     };
   }
 
@@ -51,6 +53,9 @@ class Azure {
   }
   website() {
     return new webSite(this.getSDK());
+  }
+  sql() {
+    return new database(this.getSDK());
   }
 }
 
