@@ -6,6 +6,7 @@ const tableStorage = require("./storage/table-storage");
 const virtualNetwork = require("./network/azure-virtual-network");
 const webSite = require("./webapps/app-service");
 const database = require("./database/azure-database");
+const api = require("./utilities/azure-api");
 
 class Azure {
   constructor() {
@@ -28,7 +29,8 @@ class Azure {
       table: this.tablestorage,
       network: this.virtualnetwork,
       website: this.website,
-      sql: this.sql
+      sql: this.sql,
+      api: this.api
     };
   }
 
@@ -51,11 +53,17 @@ class Azure {
   virtualnetwork() {
     return new virtualNetwork(this.getSDK());
   }
+
   website() {
     return new webSite(this.getSDK());
   }
+
   sql() {
     return new database(this.getSDK());
+  }
+
+  api() {
+    return new api(this.getSDK());
   }
 }
 
