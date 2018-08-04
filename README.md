@@ -43,6 +43,8 @@ Supported values for `name` : Azure, google, AWS
     ... // For Google
   }
 ];
+
+module.exports = providers;
 ```
 
 For code on quick start, please check the doc folder [here](https://github.com/cloudlibz/nodecloud-azure-plugin/tree/master/docs)
