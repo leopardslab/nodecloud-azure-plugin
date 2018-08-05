@@ -3,9 +3,9 @@
 ### Azure Queue Storage Operations
 
 ```js
-const azure = nodeCloud.getProvider("Azure");
+const provider = nodeCloud.getProvider("Azure");
 
-const queue = azure.queue();
+const queue = provider.azure.queue();
 
 const queueName = "nodecloud-queue";
 

@@ -3,9 +3,9 @@
 ### Azure API operations
 
 ```js
-const azure = nodeCloud.getProvider("Azure");
+const providers = nodeCloud.getProvider("Azure");
 
-const api = azure.api();
+const api = provider.azure.api();
 
 const resourceGroupName = "nodecloud";
 const serviceName = "NodeCloudApi";
