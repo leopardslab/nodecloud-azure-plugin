@@ -3,9 +3,9 @@
 ### Azure Virtual machines Instance Operations
 
 ```js
-const azure = nodeCloud.getProvider("Azure");
+const provider = nodeCloud.getProvider("Azure");
 
-const vm = azure.compute();
+const vm = provider.azure.compute();
 
 const resourceGroupName = "nodecloud";
 const vmName = "nodecloud-test";

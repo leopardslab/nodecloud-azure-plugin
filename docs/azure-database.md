@@ -3,9 +3,9 @@
 ### Azure Database Operations
 
 ```js
-const azure = nodeCloud.getProvider("Azure");
+const provider = nodeCloud.getProvider("Azure");
 
-const sql = azure.sql();
+const sql = provider.azure.sql();
 
 const resourceGroupName = "nodecloud";
 const serverName = "nodecloud-test-sql-server";

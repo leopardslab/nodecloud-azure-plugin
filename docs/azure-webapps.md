@@ -3,9 +3,9 @@
 ### Azure WebApps Operations
 
 ```js
-const azure = nodeCloud.getProvider("Azure");
+const provider = nodeCloud.getProvider("Azure");
 
-const website = azure.website();
+const website = provider.azure.website();
 
 const planName = "nodecloud-test";
 const planParameters = {

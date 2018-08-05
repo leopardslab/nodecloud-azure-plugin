@@ -3,9 +3,9 @@
 ### Azure VirtualNetworks Operations
 
 ```js
-const azure = nodeCloud.getProvider("Azure");
+const provider = nodeCloud.getProvider("Azure");
 
-const network = azure.network();
+const network = provider.azure.network();
 
 const resourceGroupName = "nodecloud";
 const networkName = "nodecloud-test";

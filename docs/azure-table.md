@@ -3,9 +3,9 @@
 ### Azure Table Storage Operations
 
 ```js
-const azure = nodeCloud.getProvider("Azure");
+const provider = nodeCloud.getProvider("Azure");
 
-const table = azure.table();
+const table = provider.azure.table();
 
 const tableName = "nodecloudtable";
 

@@ -3,9 +3,9 @@
 ### Azure Blob Storage Operations
 
 ```js
-const azure = nodeCloud.getProvider("Azure");
+const provider = nodeCloud.getProvider("Azure");
 
-const blob = azure.blob();
+const blob = provider.azure.blob();
 
 const containerName = "nodecloud-storage";
 
