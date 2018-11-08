@@ -18,8 +18,6 @@ Please use same key names as they are used in this plugin implementation.
 
 # Quick Start Guide
 
-## Note:
-
 Please make sure you have `.nc.config` file in the project root and have `nodecloud-core` installed.
 
 Content of `.nc.config` file is assumed as the following json structure.
