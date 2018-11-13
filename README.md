@@ -1,12 +1,12 @@
-# Nodecloud-azure-plugin
+# nodecloud-azure-plugin
 
-## Install
+## 🚀 Install
 
 ```
 $ npm install nodecloud-azure-plugin
 ```
 
-## Setting credentials in environment variables
+## ✨ Setting credentials in environment variables
 
 Please follow this [link](https://github.com/Azure/azure-sdk-for-node/blob/master/Documentation/Authentication.md#service-principal-authentication) to create azure Credentials and set them in env variables using following Keys:
 
@@ -47,7 +47,7 @@ Supported values for `name` : Azure, google, AWS
 module.exports = providers;
 ```
 
-## Development
+## 💻 Development
 
 ```
 $ git clone https://github.com/cloudliz/nodecloud-azure-plugin
