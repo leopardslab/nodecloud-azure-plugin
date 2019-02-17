@@ -1,5 +1,5 @@
 {
-  "name": "nodecloud-azure",
+  "name": "nodecloud-azure-plugin",
   "version": "1.0.0",
   "description": "Azure Wrapper for NodeCloud Core",
   "main": "index.js",
