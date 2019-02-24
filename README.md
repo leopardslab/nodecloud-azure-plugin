@@ -52,8 +52,9 @@ module.exports = providers;
 ```
 $ git clone https://github.com/cloudliz/nodecloud-azure-plugin
 $ cd nodecloud-azure-plugin
+$ npm install
 $ npm link
-$ cd nodecloud-core
+$ cd nodecloud (from the root directory, for nodecloud setup follow [this](https://github.com/cloudlibz/nodecloud))
 $ npm link nodecloud-azure-plugin
 ```
 
