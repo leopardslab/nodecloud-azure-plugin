@@ -7,7 +7,6 @@ const virtualNetwork = require("./network/azure-virtual-network");
 const webSite = require("./webapps/app-service");
 const database = require("./database/azure-database");
 const api = require("./utilities/azure-api");
-const dnsmanagement = require("./network/dns-management-client")
 
 class Azure {
   constructor() {
@@ -31,8 +30,7 @@ class Azure {
       network: this.virtualnetwork,
       website: this.website,
       sql: this.sql,
-      api: this.api,
-      dnsmanagement: this.dnsmanagement
+      api: this.api
     };
   }
 
@@ -66,10 +64,6 @@ class Azure {
 
   api() {
     return new api(this.getSDK());
-  }
-
-  dnsmanagement() {
-    return new dnsmanagement(this.getSDK());
   }
 }
 
