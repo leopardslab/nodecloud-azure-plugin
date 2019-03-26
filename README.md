@@ -54,9 +54,10 @@ $ git clone https://github.com/cloudliz/nodecloud-azure-plugin
 $ cd nodecloud-azure-plugin
 $ npm install
 $ npm link
-$ cd nodecloud (from the root directory, for nodecloud setup follow [this](https://github.com/cloudlibz/nodecloud))
+$ cd nodecloud 
 $ npm link nodecloud-azure-plugin
 ```
+(For nodecloud setup follow [this](https://github.com/cloudlibz/nodecloud))
 
 Changes in local project `nodecloud-azure-plugin` will be reflected when running `nodecloud-core` locally.
 
