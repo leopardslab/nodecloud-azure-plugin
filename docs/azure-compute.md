@@ -43,7 +43,7 @@ const params = {
   }
 };
 
-vm.createOrUpdate(resourceGroupName, vmName, params)
+vm.create(resourceGroupName, vmName, params)
   .then(res => {
     return vm.list(resourceGroupName);
   })
