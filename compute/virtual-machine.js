@@ -16,7 +16,7 @@ class VirtulMachines {
    * @param String vmName
    * @param {object} parameters
    */
-  createOrUpdate(resourceGroupName, vmName, parameters) {
+  create(resourceGroupName, vmName, parameters) {
     if (!resourceGroupName || !vmName || !parameters) {
       throw new Error("Provide resourceGroupName, vmName and parameters");
     }
