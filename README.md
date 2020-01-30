@@ -50,7 +50,7 @@ module.exports = providers;
 ## 💻 Development
 
 ```
-$ git clone https://github.com/cloudliz/nodecloud-azure-plugin
+$ git clone https://github.com/cloudlibz/nodecloud-azure-plugin.git
 $ cd nodecloud-azure-plugin
 $ npm install
 $ npm link
