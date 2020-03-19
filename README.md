@@ -52,13 +52,17 @@ module.exports = providers;
 ```
 $ git clone https://github.com/cloudlibz/nodecloud-azure-plugin.git
 $ cd nodecloud-azure-plugin
-$ npm install
 $ npm link
-$ cd nodecloud
+$ cd .. && mkdir nodecloud-dev && cd nodecloud-dev
 $ npm link nodecloud-azure-plugin
+$ cd .. && git clone https://github.com/cloudlibz/nodecloud.git
+$ cd nodecloud
+$ npm link
+$ cd nodecloud-dev
+$ npm link nodecloud
 ```
 (For nodecloud setup follow [this](https://github.com/cloudlibz/nodecloud))
 
-Changes in local project `nodecloud-azure-plugin` will be reflected when running `nodecloud-core` locally.
+Changes in local project `nodecloud-azure-plugin` will be reflected when running `nodecloud` locally.
 
 For code on quick start, please check the doc folder [here](https://github.com/cloudlibz/nodecloud-azure-plugin/tree/master/docs)
